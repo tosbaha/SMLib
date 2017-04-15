@@ -1,0 +1,28 @@
+language: objective-c
+osx_image: xcode8.3
+xcode_sdk: iphonesimulator10.0
+env:
+  global:
+  - FRAMEWORK_NAME=SMLib
+before_install:
+- rvm get head
+- brew update
+- brew outdated carthage || brew upgrade carthage
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+script:
+- set -o pipefail
+- travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib iOS" -destination
+  "platform=iOS Simulator,name=iPhone 6" build-for-testing test | xcpretty
+- travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib OSX" build-for-testing
+  test | xcpretty
+- travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib tvOS" -destination
+  "platform=tvOS Simulator,name=Apple TV 1080p" build-for-testing test | xcpretty
+deploy:
+  provider: releases
+  api_key:
+    secure: C4pUByYqIs25TvcrjhH37assiDNtdNJPfm/YEs6o0JXXszuQl5HO2i8IOo78m118e3Duz9k5UDUXF2cuKMnVHnnXcqvl0O5Q4Fc9haCe4uOTiaWpfav9t6sNSwy7J39mdsnpRbXDeC8whV9Fw6KdMwjr2KU9KQIIiq+d+Pbfwq3Tgd01ZO/ma+jKJ4cV7CojJv0OaW3rCSzEZGVYs9DYnrSkSy2CD2cOsUH4Y24UXWcp7WULMUduzhMtVDwset4SwrBPrDTAb1v2njJ1LGYXCOir7i5zNHvuGxYzdYA+5JL8QmbsWPIg9wHm1xg+9Hot/0p+ALgcfDSwjuZt1qyUdtHC7/r0/EK9jM4KrYUdN3LU4doHhh7aRI7dhgWVklhMFo87XZhe338h+1iV5BCPu0yG/lp6DsCCHghQSQA0OO+Gn9+BQK2UnBM5rN1cOzd7Q+LPro0UYOxW58ZcIIHzPod2uSuDctsxRR9ixiz4GuEIUyw6wVzfLb91T3UFXZZ9bEqfLBVhxqnTDi38qWnnMjMhL/zulczSwtqaWvQ7WjEh84l48BB2cuZR1Qy4KYMVDmDisy0CQCHTLbAs2EzpTAOnWq7pU5sbHwCIldtKEFz+/G3NjhzhcKAm3GF1dUapdcxcPbhB754K8SONc3ahTz7lblIKeckZpDMy0OdwzIo=
+  file: SMLib.framework.zip
+  on:
+    repo: tosbaha/SMLib

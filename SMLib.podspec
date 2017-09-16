@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "SMLib"
-  s.version     = "1.0"
+  s.version     = "1.0.1"
   s.summary     = "SuperMemo 2 Algorithm"
   s.homepage    = "https://github.com/tosbaha/SMLib"
   s.license     = { :type => "MIT" }
@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => "https://github.com/tosbaha/SMLib.git", :tag => s.version }
   s.source_files = "Source/*.swift"
   s.pod_target_xcconfig =  {
-        'SWIFT_VERSION' => '3.0',
+        'SWIFT_VERSION' => '4.0',
   }
 end

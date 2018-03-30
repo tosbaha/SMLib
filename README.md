@@ -2,8 +2,8 @@
 [![Travis CI](https://travis-ci.org/tosbaha/SMLib.svg?branch=master)](https://travis-ci.org/tosbaha/SMLib)
 [![Code coverage status](http://codecov.io/github/tosbaha/SMLib/coverage.svg?branch=master)](http://codecov.io/github/tosbaha/SMLib)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![CocoaPods](https://img.shields.io/cocoapods/v/SMLib.svg) ![Platform](https://img.shields.io/badge/platforms-iOS%208.0+%20%7C%20macOS%2010.10+%20%7C%20tvOS%209.0+%20%7C%20watchOS%202.0+-333333.svg)
-![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)
+![CocoaPods](https://img.shields.io/cocoapods/v/SMLib.svg) ![Platform](https://img.shields.io/cocoapods/p/SMLib.svg?style=flat)
+![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
 
 SMLib is a small library which implements [SuperMemo SM2 Algorithm](https://www.supermemo.com/english/ol/sm2.htm).
 
@@ -16,7 +16,7 @@ SMLib is a small library which implements [SuperMemo SM2 Algorithm](https://www.
 ## Requirements
 
 - iOS 8.0+ | macOS 10.10+ | tvOS 9.0+ | watchOS 2.0+
-- Xcode 9
+- Xcode 9+
 
 ## Integration
 

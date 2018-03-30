@@ -45,10 +45,8 @@ public class SM2Engine: SMEngine {
             switch flashcard.repetition {
             case 1:
                 flashcard.interval = 1
-                break
             case 2:
                 flashcard.interval = 6
-                break
             default:
                 let newInterval = ceil(Double(flashcard.repetition - 1) * flashcard.easinessFactor)
                 flashcard.interval = Int(newInterval)

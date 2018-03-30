@@ -43,11 +43,11 @@ class ViewController: UIViewController {
 
     func addCards() {
         let card1 = Flashcard(front: "🐒", back: "Monkey")
-        let card2 = Flashcard(front: "🐘", back:"Elephant")
-        let card3 = Flashcard(front: "🐎", back:"Horse")
-        let card4 = Flashcard(front: "🐕", back:"Dog")
-        let card5 = Flashcard(front: "🐈", back:"Cat")
-        let card6 = Flashcard(front:  "🐳", back:"Whale")
+        let card2 = Flashcard(front: "🐘", back: "Elephant")
+        let card3 = Flashcard(front: "🐎", back: "Horse")
+        let card4 = Flashcard(front: "🐕", back: "Dog")
+        let card5 = Flashcard(front: "🐈", back: "Cat")
+        let card6 = Flashcard(front: "🐳", back: "Whale")
         deck.append(card1)
         deck.append(card2)
         deck.append(card3)

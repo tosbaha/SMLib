@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode9.3beta
 notifications:
   email: false
 env:
@@ -11,9 +11,11 @@ before_install:
 before_deploy:
 - carthage build --no-skip-current
 - carthage archive $FRAMEWORK_NAME
+before_script:
+- swiftlint
 script:
 - set -o pipefail
-- travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib iOS" -destination "platform=iOS Simulator,name=iPhone 6" build-for-testing -enableCodeCoverage YES test
+- travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib iOS" -destination "platform=iOS Simulator,name=iPhone 8" build-for-testing -enableCodeCoverage YES test
 - bash <(curl -s https://codecov.io/bash)
 - travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib OSX" build-for-testing test | xcpretty
 - travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib tvOS" -destination "platform=tvOS Simulator,name=Apple TV 1080p" build-for-testing test | xcpretty

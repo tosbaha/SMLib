@@ -18,7 +18,7 @@ script:
 - travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib iOS" -destination "platform=iOS Simulator,name=iPhone 8" build-for-testing -enableCodeCoverage YES test
 - bash <(curl -s https://codecov.io/bash)
 - travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib OSX" build-for-testing test | xcpretty
-- travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib tvOS" -destination "platform=tvOS Simulator,name=Apple TV 1080p" build-for-testing test | xcpretty
+- travis_retry xcodebuild -workspace SMLib.xcworkspace -scheme "SMLib tvOS" -destination "platform=tvOS Simulator,name=Apple TV" build-for-testing test | xcpretty
 deploy:
   provider: releases
   api_key:

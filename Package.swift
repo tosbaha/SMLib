@@ -13,8 +13,8 @@ let package = Package(
         .target(
             name: "SMLib",
             dependencies: [],
-            path: ".",
-            sources: ["Source"]
+            path: "Source",
+            exclude: ["Info-OSX.plist", "Info-iOS.plist", "Info-tvOS.plist", "Info-watchOS.plist", "SMLib.h"]
         ),
     ]
 )
